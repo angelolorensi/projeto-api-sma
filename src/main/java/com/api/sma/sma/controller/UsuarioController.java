@@ -13,39 +13,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.api.sma.sma.entity.Produto;
-import com.api.sma.sma.service.ProdutoService;
+import com.api.sma.sma.entity.Usuario;
+import com.api.sma.sma.service.UsuarioService;
 
 @RestController
-@RequestMapping("/api/produto")
-public class ProdutoController {
+@RequestMapping("/api/usuario")
+public class UsuarioController {
     
     @Autowired
-    private ProdutoService produtoService;
+    private UsuarioService usuarioService;
 
     @GetMapping("/")
-    public List<Produto> buscarTodosProdutos() {
-        return produtoService.buscarTodosProdutos();
+    public List<Usuario> buscarTodosUsuarios() {
+        return usuarioService.buscarTodosUsuarios();
     }
     
     @GetMapping("/{id}")
-    public Produto buscarProdutoPorId(@PathVariable Long id) {
-        return produtoService.buscarProdutoPorId(id);
+    public Usuario buscarUsuarioPorId(@PathVariable Long id) {
+        return usuarioService.buscarUsuarioPorId(id);
     }
 
     @PostMapping("/")
-    public Produto inserirProduto(@RequestBody Produto produto) {
-        return produtoService.inserirProduto(produto);
+    public Usuario inserirUsuario(@RequestBody Usuario usuario) {
+        return usuarioService.inserirUsuario(usuario);
     }
 
     @PutMapping("/")
-    public Produto atualizarProduto(@RequestBody Produto produto) {
-        return produtoService.atualizarProduto(produto);
+    public Usuario atualizarUsuario(@RequestBody Usuario usuario) {
+        return usuarioService.atualizarUsuario(usuario);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> excluirProduto(@PathVariable Long id) {
-        produtoService.excluirProduto(id);
+    public ResponseEntity<Void> excluirUsuario(@PathVariable Long id) {
+        usuarioService.excluirUsuario(id);
         return ResponseEntity.ok().build();
     }
 }
