@@ -19,13 +19,14 @@ public class Usuario {
     private Long id;
 
     private String nome;
-    private Double senha;
+    private String senha;
     private String endereco;
+    private String cep;
     private String telefone;
     private String cpf;
     private String sexo;
     private String email;
-    private String dataNascimento;
+    private Date dataNascimento;
     private String urlImagemAvatar;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
