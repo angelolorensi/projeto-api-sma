@@ -3,6 +3,7 @@ package com.api.sma.sma.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.api.sma.sma.entity.Usuario;
 import com.api.sma.sma.service.UsuarioService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/usuario")
@@ -34,8 +37,8 @@ public class UsuarioController {
     }
 
     @PostMapping("/")
-    public Usuario inserirUsuario(@RequestBody Usuario usuario) {
-        return usuarioService.inserirUsuario(usuario);
+    public ResponseEntity<Usuario> registrarUsuario(@Valid @RequestBody Usuario usuario) throws Exception {      
+        return new ResponseEntity<>(usuarioService.salvarUsuario(usuario), HttpStatus.CREATED); 
     }
 
     @PutMapping("/")

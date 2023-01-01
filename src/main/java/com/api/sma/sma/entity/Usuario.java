@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Usuario {
+public class Usuario{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,6 +20,7 @@ public class Usuario {
 
     private String nome;
     private String senha;
+    private CargoEnum cargo;
     private String endereco;
     private String cep;
     private String telefone;
@@ -28,8 +29,13 @@ public class Usuario {
     private String email;
     private Date dataNascimento;
     private String urlImagemAvatar;
+    
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtualizacao;
+    
+    private Boolean deslogado;
+    private Boolean logado;
+
 }
